@@ -5,8 +5,7 @@ const yaml = require('js-yaml')
 
 async function main() {
     await app.whenReady()
-    const out = process.argv[2] ? fs.createWriteStream(process.argv[2]) : process.stdout
-    out.write(yaml.dump(Menu.getApplicationMenu(), { skipInvalid: true }))
+    fs.writeFileSync('menu.yml', yaml.dump(Menu.getApplicationMenu(), { skipInvalid: true }))
     app.quit()
 }
 

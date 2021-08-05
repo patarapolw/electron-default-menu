@@ -1,99 +1,98 @@
 /**
  *
+ * @param {string} [repo] Github repo (without `*.git`), e.g. https://github.com/electron/electron
  * @param {string} [platform] Current tested OS's are `darwin` for macOS, `win32` for Windows, `linux` for Linux
  * @returns {import('electron').MenuItemConstructorOptions[]} Template for use in `Menu.setApplicationMenu(Menu.buildFromTemplate(output))`
+ *
+ * @see https://www.electronjs.org/docs/api/menu#examples
  */
-module.exports = function (platform = process.platform) {
+module.exports = function (
+    repo = "https://github.com/electron/electron",
+    platform = process.platform
+) {
+    const isMac = platform === "darwin";
+
     const template = [
+        ...(isMac
+            ? [
+                  {
+                      label: app.name,
+                      submenu: [
+                          { role: "about" },
+                          { type: "separator" },
+                          { role: "services" },
+                          { type: "separator" },
+                          { role: "hide" },
+                          { role: "hideothers" },
+                          { role: "unhide" },
+                          { type: "separator" },
+                          { role: "quit" },
+                      ],
+                  },
+              ]
+            : []),
+        {
+            label: "File",
+            submenu: [isMac ? { role: "close" } : { role: "quit" }],
+        },
         {
             label: "Edit",
             submenu: [
-                {
-                    label: "Undo",
-                    accelerator: "CmdOrCtrl+Z",
-                    role: "undo",
-                },
-                {
-                    label: "Redo",
-                    accelerator: "Shift+CmdOrCtrl+Z",
-                    role: "redo",
-                },
-                {
-                    type: "separator",
-                },
-                {
-                    label: "Cut",
-                    accelerator: "CmdOrCtrl+X",
-                    role: "cut",
-                },
-                {
-                    label: "Copy",
-                    accelerator: "CmdOrCtrl+C",
-                    role: "copy",
-                },
-                {
-                    label: "Paste",
-                    accelerator: "CmdOrCtrl+V",
-                    role: "paste",
-                },
-                {
-                    label: "Select All",
-                    accelerator: "CmdOrCtrl+A",
-                    role: "selectall",
-                },
+                { role: "undo" },
+                { role: "redo" },
+                { type: "separator" },
+                { role: "cut" },
+                { role: "copy" },
+                { role: "paste" },
+                ...(isMac
+                    ? [
+                          { role: "pasteAndMatchStyle" },
+                          { role: "delete" },
+                          { role: "selectAll" },
+                          { type: "separator" },
+                          {
+                              label: "Speech",
+                              submenu: [
+                                  { role: "startSpeaking" },
+                                  { role: "stopSpeaking" },
+                              ],
+                          },
+                      ]
+                    : [
+                          { role: "delete" },
+                          { type: "separator" },
+                          { role: "selectAll" },
+                      ]),
             ],
         },
         {
             label: "View",
             submenu: [
-                {
-                    label: "Reload",
-                    accelerator: "CmdOrCtrl+R",
-                    click: function (item, focusedWindow) {
-                        if (focusedWindow) focusedWindow.reload();
-                    },
-                },
-                {
-                    label: "Toggle Full Screen",
-                    accelerator: (function () {
-                        if (process.platform === "darwin")
-                            return "Ctrl+Command+F";
-                        else return "F11";
-                    })(),
-                    click: function (item, focusedWindow) {
-                        if (focusedWindow)
-                            focusedWindow.setFullScreen(
-                                !focusedWindow.isFullScreen()
-                            );
-                    },
-                },
-                {
-                    label: "Toggle Developer Tools",
-                    accelerator: (function () {
-                        if (process.platform === "darwin")
-                            return "Alt+Command+I";
-                        else return "Ctrl+Shift+I";
-                    })(),
-                    click: function (item, focusedWindow) {
-                        if (focusedWindow) focusedWindow.toggleDevTools();
-                    },
-                },
+                { role: "reload" },
+                { role: "forceReload" },
+                { role: "toggleDevTools" },
+                { type: "separator" },
+                { role: "resetZoom" },
+                { role: "zoomIn" },
+                { role: "zoomOut" },
+                { type: "separator" },
+                { role: "togglefullscreen" },
             ],
         },
         {
             label: "Window",
             role: "window",
             submenu: [
-                {
-                    label: "Minimize",
-                    accelerator: "CmdOrCtrl+M",
-                    role: "minimize",
-                },
-                {
-                    label: "Close",
-                    accelerator: "CmdOrCtrl+W",
-                    role: "close",
-                },
+                { role: "minimize" },
+                { role: "zoom" },
+                ...(isMac
+                    ? [
+                          { type: "separator" },
+                          { role: "front" },
+                          { type: "separator" },
+                          { role: "window" },
+                      ]
+                    : [{ role: "close" }]),
             ],
         },
         {
@@ -102,78 +101,35 @@ module.exports = function (platform = process.platform) {
             submenu: [
                 {
                     label: "Learn More",
-                    click: function () {
-                        require("electron").shell.openExternal(
-                            "http://electron.atom.io"
-                        );
+                    click: async () => {
+                        const { shell } = require("electron");
+                        await shell.openExternal(repo);
+                    },
+                },
+                {
+                    label: "Documentation",
+                    click: async () => {
+                        const { shell } = require("electron");
+                        await shell.openExternal(`${repo}/wiki`);
+                    },
+                },
+                {
+                    label: "Community Discussions",
+                    click: async () => {
+                        const { shell } = require("electron");
+                        await shell.openExternal(`${repo}/discussions`);
+                    },
+                },
+                {
+                    label: "Search Issues",
+                    click: async () => {
+                        const { shell } = require("electron");
+                        await shell.openExternal(`${repo}/issues`);
                     },
                 },
             ],
         },
     ];
-
-    if (platform === "darwin") {
-        const { name } = app;
-        template.unshift({
-            label: name,
-            submenu: [
-                {
-                    label: "About " + name,
-                    role: "about",
-                },
-                {
-                    type: "separator",
-                },
-                {
-                    label: "Services",
-                    role: "services",
-                    submenu: [],
-                },
-                {
-                    type: "separator",
-                },
-                {
-                    label: "Hide " + name,
-                    accelerator: "Command+H",
-                    role: "hide",
-                },
-                {
-                    label: "Hide Others",
-                    accelerator: "Command+Shift+H",
-                    role: "hideothers",
-                },
-                {
-                    label: "Show All",
-                    role: "unhide",
-                },
-                {
-                    type: "separator",
-                },
-                {
-                    label: "Quit",
-                    accelerator: "Command+Q",
-                    click: function () {
-                        app.quit();
-                    },
-                },
-            ],
-        });
-
-        const windowMenu = template.find(function (m) {
-            return m.role === "window";
-        });
-        if (windowMenu) {
-            windowMenu.submenu.push(
-                {
-                    type: "separator",
-                },
-                {
-                    label: "Bring All to Front",
-                    role: "front",
-                }
-            );
-        }
-    }
 
     return template;
 };

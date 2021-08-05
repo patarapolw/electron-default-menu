@@ -18,20 +18,26 @@ describe("Comparing template", () => {
     );
 
     /**
-         *
-         * @param {typeof template} templ
-         * @param {typeof menu} submenu
-         * @param {string} name
-         */
-    const comparison = (templ, submenu, name = 'ROOT') => {
+     *
+     * @param {typeof template} templ
+     * @param {typeof menu} submenu
+     * @param {string} name
+     */
+    const comparison = (templ, submenu, name = "ROOT") => {
         it(`${name}: compare label naming`, () => {
-            assert.equal(templ.map((t) => t.label), submenu.items.map((t) => t.label))
-        })
+            assert.equal(
+                templ.map((t) => t.role || t.label || ""),
+                submenu.items.map((t) => t.role || t.label)
+            );
+        });
 
-        const allLabels = new Set(submenu.items.map((t) => t.label))
+        const allLabels = new Set(submenu.items.map((t) => t.role || t.label));
         templ.map((t) => {
-            if (t.label && allLabels.has(t.label)) {
-                const newsub = submenu.items.find((t0) => t0.label === t.label)
+            const label = t.role || t.label;
+            if (label && allLabels.has(label)) {
+                const newsub = submenu.items.find(
+                    (t0) => t0.role === t.role || t0.label === t.label
+                );
 
                 const templ =
                     /** @type {import('electron').MenuItemConstructorOptions[]} */ (
@@ -40,13 +46,13 @@ describe("Comparing template", () => {
 
                 if (templ) {
                     it(`${name}.${t.label}: must have submenu items`, () => {
-                        assert(newsub)
-                    })
+                        assert(newsub);
+                    });
 
                     comparison(templ, newsub.submenu, t.label);
                 }
             }
-        })
+        });
     };
     comparison(template, menu);
 });

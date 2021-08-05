@@ -1,0 +1,39 @@
+name: build-desktop
+
+on:
+  pull_request:
+    branches: [main]
+  release:
+    types: [created]
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        platform: [macos-latest, ubuntu-latest, windows-latest]
+
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2.1.5
+        with:
+          node-version: 14.x
+
+      - name: Build YAML
+        run: |
+          npm i -g yarn
+          yarn
+          yarn start menu.yml
+
+      - name: Upload to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: menu.yml
+          asset_name: menu-${{ RUNNER_OS }}.yml
+          tag: release-${{ github.ref }}
+          overwrite: true
+          body: menu-template

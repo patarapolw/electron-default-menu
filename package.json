@@ -1,0 +1,14 @@
+{
+  "name": "electron-default-menu",
+  "version": "0.1.0",
+  "main": "index.js",
+  "author": "Pacharapol Withayasakpunt <polv@polv.cc> (https://www.polv.cc)",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "electron": "^13.1.8",
+    "js-yaml": "^4.1.0"
+  }
+}

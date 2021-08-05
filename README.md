@@ -1,0 +1,1 @@
+Up-to-date [Electron](https://electronjs.org) default [Menu](https://github.com/electron/electron/blob/main/docs/api/menu.md), compiled and verified by [Github Actions](https://github.com/features/actions).

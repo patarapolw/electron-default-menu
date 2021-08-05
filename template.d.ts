@@ -15,10 +15,6 @@ declare function defaultMenu(opts?: {
      * Current tested OS's are `darwin` for macOS, `win32` for Windows, `linux` for Linux
      */
     platform?: string;
-    /**
-     * Application name (for macOS)
-     */
-    appName?: string;
 }): MenuItemConstructorOptions[];
 
 export = defaultMenu;

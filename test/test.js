@@ -46,7 +46,7 @@ describe("Comparing template", () => {
 
                 if (templ) {
                     it(`${name}.${label}: must have submenu items`, () => {
-                        assert(newsub);
+                        assert(newsub.submenu);
                     });
 
                     comparison(templ, newsub.submenu, t.label);

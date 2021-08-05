@@ -25,8 +25,8 @@ jobs:
       - name: Dependencies to run Electron in Github Actions
         if: matrix.platform == 'ubuntu-latest'
         run: |
-          apt update
-          apt install xorg
+          sudo apt-get update
+          sudo apt-get install xorg
 
       - name: Build YAML
         run: |

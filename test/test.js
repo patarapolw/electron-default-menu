@@ -17,34 +17,36 @@ describe("Comparing template", () => {
         )
     );
 
-    it("All labels should be the same", () => {
-        /**
+    /**
          *
          * @param {typeof template} templ
          * @param {typeof menu} submenu
+         * @param {string} name
          */
-        const comparison = (templ, submenu) => {
-            assert.equal(
-                templ.length,
-                submenu.items.length,
-                "template and dumped output must be of the same length"
-            );
+    const comparison = (templ, submenu, name = 'ROOT') => {
+        it(`${name}: compare label naming`, () => {
+            assert.equal(templ.map((t) => t.label), submenu.items.map((t) => t.label))
+        })
 
-            templ.map((t, i) => {
+        const allLabels = new Set(submenu.items.map((t) => t.label))
+        templ.map((t) => {
+            if (t.label && allLabels.has(t.label)) {
+                const newsub = submenu.items.find((t0) => t0.label === t.label)
+
                 const templ =
                     /** @type {import('electron').MenuItemConstructorOptions[]} */ (
                         t.submenu
                     );
 
                 if (templ) {
-                    assert(
-                        submenu.items[i].submenu,
-                        `${t.label} doesn't have submenu items`
-                    );
-                    comparison(templ, submenu.items[i].submenu);
+                    it(`${name}.${t.label}: must have submenu items`, () => {
+                        assert(newsub)
+                    })
+
+                    comparison(templ, newsub.submenu, t.label);
                 }
-            });
-        };
-        comparison(template, menu);
-    });
+            }
+        })
+    };
+    comparison(template, menu);
 });

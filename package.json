@@ -8,7 +8,7 @@
     "template.js"
   ],
   "scripts": {
-    "test:make-input": "electron tests/make-input.js",
+    "test:make-input": "electron test/make-input.js",
     "test": "mocha"
   },
   "devDependencies": {

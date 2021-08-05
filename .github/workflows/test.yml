@@ -29,11 +29,14 @@ jobs:
       #     sudo apt-get update
       #     sudo apt-get install -y libgtk2.0-0 libgconf-2-4 libasound2 libxtst6 libxss1 libnss3 xvfb
 
-      - name: Build YAML
-        if: matrix.platform != 'ubuntu-latest'
+      - name: Install yarn deps
         run: |
           npm i -g yarn
           yarn
+
+      - name: Build YAML
+        if: matrix.platform != 'ubuntu-latest'
+        run: |
           yarn test:make-input
       
       - name: Run tests

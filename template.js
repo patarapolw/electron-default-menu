@@ -1,22 +1,32 @@
 /**
  *
- * @param {string} [repo] Github repo (without `*.git`), e.g. https://github.com/electron/electron
- * @param {string} [platform] Current tested OS's are `darwin` for macOS, `win32` for Windows, `linux` for Linux
+ * @param {object} [opts]
+ * @param {string} [opts.repo] Github repo (without `*.git`), e.g. https://github.com/electron/electron
+ * @param {string} [opts.platform] Current tested OS's are `darwin` for macOS, `win32` for Windows, `linux` for Linux
+ * @param {string} [opts.appName] Application name (for macOS)
  * @returns {import('electron').MenuItemConstructorOptions[]} Template for use in `Menu.setApplicationMenu(Menu.buildFromTemplate(output))`
  *
  * @see https://www.electronjs.org/docs/api/menu#examples
  */
-module.exports = function (
-    repo = "https://github.com/electron/electron",
-    platform = process.platform
-) {
+module.exports = function (opts = {}) {
+    const repo = opts.repo || "https://github.com/electron/electron";
+    const platform = opts.platform || process.platform;
+    const appName =
+        opts.appName ||
+        (() => {
+            try {
+                return require("electron").app.name;
+            } catch (e) {}
+            return repo.replace(/^.+\//, "");
+        })();
+
     const isMac = platform === "darwin";
 
     const template = [
         ...(isMac
             ? [
                   {
-                      label: app.name,
+                      label: appName,
                       submenu: [
                           { role: "about" },
                           { type: "separator" },

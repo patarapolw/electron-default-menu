@@ -14,10 +14,13 @@ module.exports = function (opts = {}) {
     const appName =
         opts.appName ||
         (() => {
+            let appName = "";
+
             try {
-                return require("electron").app.name;
+                appName = require("electron").app.name;
             } catch (e) {}
-            return "appmenu";
+
+            return appName || "appmenu";
         })();
 
     const isMac = platform === "darwin";

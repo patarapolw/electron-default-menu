@@ -1,14 +1,22 @@
 {
-  "name": "electron-default-menu",
+  "name": "@patarapolw/electron-default-menu",
   "version": "0.1.0",
-  "main": "index.js",
+  "main": "template.js",
   "author": "Pacharapol Withayasakpunt <polv@polv.cc> (https://www.polv.cc)",
   "license": "MIT",
+  "files": [
+    "template.js"
+  ],
   "scripts": {
-    "start": "electron ."
+    "test:make-input": "electron test/make-input.js",
+    "test": "mocha"
   },
-  "dependencies": {
+  "devDependencies": {
     "electron": "^13.1.8",
-    "js-yaml": "^4.1.0"
+    "js-yaml": "^4.1.0",
+    "mocha": "^9.0.3"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

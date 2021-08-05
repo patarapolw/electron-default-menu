@@ -1,16 +1,16 @@
-&ref_2
+&ref_10
 commandsMap:
-  '2': &ref_32
-    role: filemenu
+  '10': &ref_48
+    role: appmenu
     submenu: &ref_0
       commandsMap:
         '1': &ref_1
-          role: quit
+          role: about
           submenu: null
           type: normal
           accelerator: null
           icon: null
-          label: Quit
+          label: About electron-default-menu
           sublabel: ''
           toolTip: ''
           enabled: true
@@ -20,9 +20,181 @@ commandsMap:
           registerAccelerator: true
           commandId: 1
           menu: *ref_0
+        '2': &ref_2
+          type: separator
+          submenu: null
+          role: null
+          accelerator: null
+          icon: null
+          label: ''
+          sublabel: ''
+          toolTip: ''
+          enabled: true
+          visible: true
+          checked: false
+          acceleratorWorksWhenHidden: true
+          registerAccelerator: true
+          commandId: 2
+          menu: *ref_0
+        '3': &ref_3
+          role: services
+          submenu: null
+          type: normal
+          accelerator: null
+          icon: null
+          label: Services
+          sublabel: ''
+          toolTip: ''
+          enabled: true
+          visible: true
+          checked: false
+          acceleratorWorksWhenHidden: true
+          registerAccelerator: true
+          commandId: 3
+          menu: *ref_0
+        '4': &ref_4
+          type: separator
+          submenu: null
+          role: null
+          accelerator: null
+          icon: null
+          label: ''
+          sublabel: ''
+          toolTip: ''
+          enabled: true
+          visible: true
+          checked: false
+          acceleratorWorksWhenHidden: true
+          registerAccelerator: true
+          commandId: 4
+          menu: *ref_0
+        '5': &ref_5
+          role: hide
+          submenu: null
+          type: normal
+          accelerator: null
+          icon: null
+          label: Hide electron-default-menu
+          sublabel: ''
+          toolTip: ''
+          enabled: true
+          visible: true
+          checked: false
+          acceleratorWorksWhenHidden: true
+          registerAccelerator: true
+          commandId: 5
+          menu: *ref_0
+        '6': &ref_6
+          role: hideothers
+          submenu: null
+          type: normal
+          accelerator: null
+          icon: null
+          label: Hide Others
+          sublabel: ''
+          toolTip: ''
+          enabled: true
+          visible: true
+          checked: false
+          acceleratorWorksWhenHidden: true
+          registerAccelerator: true
+          commandId: 6
+          menu: *ref_0
+        '7': &ref_7
+          role: unhide
+          submenu: null
+          type: normal
+          accelerator: null
+          icon: null
+          label: Show All
+          sublabel: ''
+          toolTip: ''
+          enabled: true
+          visible: true
+          checked: false
+          acceleratorWorksWhenHidden: true
+          registerAccelerator: true
+          commandId: 7
+          menu: *ref_0
+        '8': &ref_8
+          type: separator
+          submenu: null
+          role: null
+          accelerator: null
+          icon: null
+          label: ''
+          sublabel: ''
+          toolTip: ''
+          enabled: true
+          visible: true
+          checked: false
+          acceleratorWorksWhenHidden: true
+          registerAccelerator: true
+          commandId: 8
+          menu: *ref_0
+        '9': &ref_9
+          role: quit
+          submenu: null
+          type: normal
+          accelerator: null
+          icon: null
+          label: Quit electron-default-menu
+          sublabel: ''
+          toolTip: ''
+          enabled: true
+          visible: true
+          checked: false
+          acceleratorWorksWhenHidden: true
+          registerAccelerator: true
+          commandId: 9
+          menu: *ref_0
       groupsMap: {}
       items:
         - *ref_1
+        - *ref_2
+        - *ref_3
+        - *ref_4
+        - *ref_5
+        - *ref_6
+        - *ref_7
+        - *ref_8
+        - *ref_9
+    type: submenu
+    accelerator: null
+    icon: null
+    label: electron-default-menu
+    sublabel: ''
+    toolTip: ''
+    enabled: true
+    visible: true
+    checked: false
+    acceleratorWorksWhenHidden: true
+    registerAccelerator: true
+    commandId: 10
+    menu: *ref_10
+  '12': &ref_49
+    role: filemenu
+    submenu: &ref_11
+      commandsMap:
+        '11': &ref_12
+          role: close
+          submenu: null
+          type: normal
+          accelerator: null
+          icon: null
+          label: Close Window
+          sublabel: ''
+          toolTip: ''
+          enabled: true
+          visible: true
+          checked: false
+          acceleratorWorksWhenHidden: true
+          registerAccelerator: true
+          commandId: 11
+          menu: *ref_11
+      groupsMap: {}
+      items:
+        - *ref_12
     type: submenu
     accelerator: null
     icon: null
@@ -34,13 +206,13 @@ commandsMap:
     checked: false
     acceleratorWorksWhenHidden: true
     registerAccelerator: true
-    commandId: 2
-    menu: *ref_2
-  '12': &ref_33
+    commandId: 12
+    menu: *ref_10
+  '26': &ref_50
     role: editmenu
-    submenu: &ref_3
+    submenu: &ref_13
       commandsMap:
-        '3': &ref_4
+        '13': &ref_17
           role: undo
           submenu: null
           type: normal
@@ -54,9 +226,9 @@ commandsMap:
           checked: false
           acceleratorWorksWhenHidden: true
           registerAccelerator: true
-          commandId: 3
-          menu: *ref_3
-        '4': &ref_5
+          commandId: 13
+          menu: *ref_13
+        '14': &ref_18
           role: redo
           submenu: null
           type: normal
@@ -70,9 +242,9 @@ commandsMap:
           checked: false
           acceleratorWorksWhenHidden: true
           registerAccelerator: true
-          commandId: 4
-          menu: *ref_3
-        '5': &ref_6
+          commandId: 14
+          menu: *ref_13
+        '15': &ref_19
           type: separator
           submenu: null
           role: null
@@ -86,9 +258,9 @@ commandsMap:
           checked: false
           acceleratorWorksWhenHidden: true
           registerAccelerator: true
-          commandId: 5
-          menu: *ref_3
-        '6': &ref_7
+          commandId: 15
+          menu: *ref_13
+        '16': &ref_20
           role: cut
           submenu: null
           type: normal
@@ -102,9 +274,9 @@ commandsMap:
           checked: false
           acceleratorWorksWhenHidden: true
           registerAccelerator: false
-          commandId: 6
-          menu: *ref_3
-        '7': &ref_8
+          commandId: 16
+          menu: *ref_13
+        '17': &ref_21
           role: copy
           submenu: null
           type: normal
@@ -118,9 +290,9 @@ commandsMap:
           checked: false
           acceleratorWorksWhenHidden: true
           registerAccelerator: false
-          commandId: 7
-          menu: *ref_3
-        '8': &ref_9
+          commandId: 17
+          menu: *ref_13
+        '18': &ref_22
           role: paste
           submenu: null
           type: normal
@@ -134,9 +306,25 @@ commandsMap:
           checked: false
           acceleratorWorksWhenHidden: true
           registerAccelerator: false
-          commandId: 8
-          menu: *ref_3
-        '9': &ref_10
+          commandId: 18
+          menu: *ref_13
+        '19': &ref_23
+          role: pasteandmatchstyle
+          submenu: null
+          type: normal
+          accelerator: null
+          icon: null
+          label: Paste and Match Style
+          sublabel: ''
+          toolTip: ''
+          enabled: true
+          visible: true
+          checked: false
+          acceleratorWorksWhenHidden: true
+          registerAccelerator: false
+          commandId: 19
+          menu: *ref_13
+        '20': &ref_24
           role: delete
           submenu: null
           type: normal
@@ -150,25 +338,9 @@ commandsMap:
           checked: false
           acceleratorWorksWhenHidden: true
           registerAccelerator: true
-          commandId: 9
-          menu: *ref_3
-        '10': &ref_11
-          type: separator
-          submenu: null
-          role: null
-          accelerator: null
-          icon: null
-          label: ''
-          sublabel: ''
-          toolTip: ''
-          enabled: true
-          visible: true
-          checked: false
-          acceleratorWorksWhenHidden: true
-          registerAccelerator: true
-          commandId: 10
-          menu: *ref_3
-        '11': &ref_12
+          commandId: 20
+          menu: *ref_13
+        '21': &ref_25
           role: selectall
           submenu: null
           type: normal
@@ -182,19 +354,90 @@ commandsMap:
           checked: false
           acceleratorWorksWhenHidden: true
           registerAccelerator: true
-          commandId: 11
-          menu: *ref_3
+          commandId: 21
+          menu: *ref_13
+        '22': &ref_26
+          type: separator
+          submenu: null
+          role: null
+          accelerator: null
+          icon: null
+          label: ''
+          sublabel: ''
+          toolTip: ''
+          enabled: true
+          visible: true
+          checked: false
+          acceleratorWorksWhenHidden: true
+          registerAccelerator: true
+          commandId: 22
+          menu: *ref_13
+        '25': &ref_27
+          label: Speech
+          submenu: &ref_14
+            commandsMap:
+              '23': &ref_15
+                role: startspeaking
+                submenu: null
+                type: normal
+                accelerator: null
+                icon: null
+                label: Start Speaking
+                sublabel: ''
+                toolTip: ''
+                enabled: true
+                visible: true
+                checked: false
+                acceleratorWorksWhenHidden: true
+                registerAccelerator: true
+                commandId: 23
+                menu: *ref_14
+              '24': &ref_16
+                role: stopspeaking
+                submenu: null
+                type: normal
+                accelerator: null
+                icon: null
+                label: Stop Speaking
+                sublabel: ''
+                toolTip: ''
+                enabled: true
+                visible: true
+                checked: false
+                acceleratorWorksWhenHidden: true
+                registerAccelerator: true
+                commandId: 24
+                menu: *ref_14
+            groupsMap: {}
+            items:
+              - *ref_15
+              - *ref_16
+          type: submenu
+          role: null
+          accelerator: null
+          icon: null
+          sublabel: ''
+          toolTip: ''
+          enabled: true
+          visible: true
+          checked: false
+          acceleratorWorksWhenHidden: true
+          registerAccelerator: true
+          commandId: 25
+          menu: *ref_13
       groupsMap: {}
       items:
-        - *ref_4
-        - *ref_5
-        - *ref_6
-        - *ref_7
-        - *ref_8
-        - *ref_9
-        - *ref_10
-        - *ref_11
-        - *ref_12
+        - *ref_17
+        - *ref_18
+        - *ref_19
+        - *ref_20
+        - *ref_21
+        - *ref_22
+        - *ref_23
+        - *ref_24
+        - *ref_25
+        - *ref_26
+        - *ref_27
     type: submenu
     accelerator: null
     icon: null
@@ -206,13 +449,13 @@ commandsMap:
     checked: false
     acceleratorWorksWhenHidden: true
     registerAccelerator: true
-    commandId: 12
-    menu: *ref_2
-  '22': &ref_34
+    commandId: 26
+    menu: *ref_10
+  '36': &ref_51
     role: viewmenu
-    submenu: &ref_13
+    submenu: &ref_28
       commandsMap:
-        '13': &ref_14
+        '27': &ref_29
           role: reload
           submenu: null
           type: normal
@@ -226,9 +469,9 @@ commandsMap:
           checked: false
           acceleratorWorksWhenHidden: true
           registerAccelerator: true
-          commandId: 13
-          menu: *ref_13
-        '14': &ref_15
+          commandId: 27
+          menu: *ref_28
+        '28': &ref_30
           role: forcereload
           submenu: null
           type: normal
@@ -242,9 +485,9 @@ commandsMap:
           checked: false
           acceleratorWorksWhenHidden: true
           registerAccelerator: true
-          commandId: 14
-          menu: *ref_13
-        '15': &ref_16
+          commandId: 28
+          menu: *ref_28
+        '29': &ref_31
           role: toggledevtools
           submenu: null
           type: normal
@@ -258,9 +501,9 @@ commandsMap:
           checked: false
           acceleratorWorksWhenHidden: true
           registerAccelerator: true
-          commandId: 15
-          menu: *ref_13
-        '16': &ref_17
+          commandId: 29
+          menu: *ref_28
+        '30': &ref_32
           type: separator
           submenu: null
           role: null
@@ -274,9 +517,9 @@ commandsMap:
           checked: false
           acceleratorWorksWhenHidden: true
           registerAccelerator: true
-          commandId: 16
-          menu: *ref_13
-        '17': &ref_18
+          commandId: 30
+          menu: *ref_28
+        '31': &ref_33
           role: resetzoom
           submenu: null
           type: normal
@@ -290,9 +533,9 @@ commandsMap:
           checked: false
           acceleratorWorksWhenHidden: true
           registerAccelerator: true
-          commandId: 17
-          menu: *ref_13
-        '18': &ref_19
+          commandId: 31
+          menu: *ref_28
+        '32': &ref_34
           role: zoomin
           submenu: null
           type: normal
@@ -306,9 +549,9 @@ commandsMap:
           checked: false
           acceleratorWorksWhenHidden: true
           registerAccelerator: true
-          commandId: 18
-          menu: *ref_13
-        '19': &ref_20
+          commandId: 32
+          menu: *ref_28
+        '33': &ref_35
           role: zoomout
           submenu: null
           type: normal
@@ -322,9 +565,9 @@ commandsMap:
           checked: false
           acceleratorWorksWhenHidden: true
           registerAccelerator: true
-          commandId: 19
-          menu: *ref_13
-        '20': &ref_21
+          commandId: 33
+          menu: *ref_28
+        '34': &ref_36
           type: separator
           submenu: null
           role: null
@@ -338,9 +581,9 @@ commandsMap:
           checked: false
           acceleratorWorksWhenHidden: true
           registerAccelerator: true
-          commandId: 20
-          menu: *ref_13
-        '21': &ref_22
+          commandId: 34
+          menu: *ref_28
+        '35': &ref_37
           role: togglefullscreen
           submenu: null
           type: normal
@@ -354,19 +597,19 @@ commandsMap:
           checked: false
           acceleratorWorksWhenHidden: true
           registerAccelerator: true
-          commandId: 21
-          menu: *ref_13
+          commandId: 35
+          menu: *ref_28
       groupsMap: {}
       items:
-        - *ref_14
-        - *ref_15
-        - *ref_16
-        - *ref_17
-        - *ref_18
-        - *ref_19
-        - *ref_20
-        - *ref_21
-        - *ref_22
+        - *ref_29
+        - *ref_30
+        - *ref_31
+        - *ref_32
+        - *ref_33
+        - *ref_34
+        - *ref_35
+        - *ref_36
+        - *ref_37
     type: submenu
     accelerator: null
     icon: null
@@ -378,13 +621,13 @@ commandsMap:
     checked: false
     acceleratorWorksWhenHidden: true
     registerAccelerator: true
-    commandId: 22
-    menu: *ref_2
-  '26': &ref_35
+    commandId: 36
+    menu: *ref_10
+  '41': &ref_52
     role: windowmenu
-    submenu: &ref_23
+    submenu: &ref_38
       commandsMap:
-        '23': &ref_24
+        '37': &ref_39
           role: minimize
           submenu: null
           type: normal
@@ -398,9 +641,9 @@ commandsMap:
           checked: false
           acceleratorWorksWhenHidden: true
           registerAccelerator: true
-          commandId: 23
-          menu: *ref_23
-        '24': &ref_25
+          commandId: 37
+          menu: *ref_38
+        '38': &ref_40
           role: zoom
           submenu: null
           type: normal
@@ -414,15 +657,15 @@ commandsMap:
           checked: false
           acceleratorWorksWhenHidden: true
           registerAccelerator: true
-          commandId: 24
-          menu: *ref_23
-        '25': &ref_26
-          role: close
+          commandId: 38
+          menu: *ref_38
+        '39': &ref_41
+          type: separator
           submenu: null
-          type: normal
+          role: null
           accelerator: null
           icon: null
-          label: Close
+          label: ''
           sublabel: ''
           toolTip: ''
           enabled: true
@@ -430,13 +673,30 @@ commandsMap:
           checked: false
           acceleratorWorksWhenHidden: true
           registerAccelerator: true
-          commandId: 25
-          menu: *ref_23
+          commandId: 39
+          menu: *ref_38
+        '40': &ref_42
+          role: front
+          submenu: null
+          type: normal
+          accelerator: null
+          icon: null
+          label: Bring All to Front
+          sublabel: ''
+          toolTip: ''
+          enabled: true
+          visible: true
+          checked: false
+          acceleratorWorksWhenHidden: true
+          registerAccelerator: true
+          commandId: 40
+          menu: *ref_38
       groupsMap: {}
       items:
-        - *ref_24
-        - *ref_25
-        - *ref_26
+        - *ref_39
+        - *ref_40
+        - *ref_41
+        - *ref_42
     type: submenu
     accelerator: null
     icon: null
@@ -448,13 +708,13 @@ commandsMap:
     checked: false
     acceleratorWorksWhenHidden: true
     registerAccelerator: true
-    commandId: 26
-    menu: *ref_2
-  '31': &ref_36
+    commandId: 41
+    menu: *ref_10
+  '46': &ref_53
     role: help
-    submenu: &ref_27
+    submenu: &ref_43
       commandsMap:
-        '27': &ref_28
+        '42': &ref_44
           label: Learn More
           submenu: null
           type: normal
@@ -468,9 +728,9 @@ commandsMap:
           checked: false
           acceleratorWorksWhenHidden: true
           registerAccelerator: true
-          commandId: 27
-          menu: *ref_27
-        '28': &ref_29
+          commandId: 42
+          menu: *ref_43
+        '43': &ref_45
           label: Documentation
           submenu: null
           type: normal
@@ -484,9 +744,9 @@ commandsMap:
           checked: false
           acceleratorWorksWhenHidden: true
           registerAccelerator: true
-          commandId: 28
-          menu: *ref_27
-        '29': &ref_30
+          commandId: 43
+          menu: *ref_43
+        '44': &ref_46
           label: Community Discussions
           submenu: null
           type: normal
@@ -500,9 +760,9 @@ commandsMap:
           checked: false
           acceleratorWorksWhenHidden: true
           registerAccelerator: true
-          commandId: 29
-          menu: *ref_27
-        '30': &ref_31
+          commandId: 44
+          menu: *ref_43
+        '45': &ref_47
           label: Search Issues
           submenu: null
           type: normal
@@ -516,14 +776,14 @@ commandsMap:
           checked: false
           acceleratorWorksWhenHidden: true
           registerAccelerator: true
-          commandId: 30
-          menu: *ref_27
+          commandId: 45
+          menu: *ref_43
       groupsMap: {}
       items:
-        - *ref_28
-        - *ref_29
-        - *ref_30
-        - *ref_31
+        - *ref_44
+        - *ref_45
+        - *ref_46
+        - *ref_47
     type: submenu
     accelerator: null
     icon: null
@@ -535,12 +795,13 @@ commandsMap:
     checked: false
     acceleratorWorksWhenHidden: true
     registerAccelerator: true
-    commandId: 31
-    menu: *ref_2
+    commandId: 46
+    menu: *ref_10
 groupsMap: {}
 items:
-  - *ref_32
-  - *ref_33
-  - *ref_34
-  - *ref_35
-  - *ref_36
+  - *ref_48
+  - *ref_49
+  - *ref_50
+  - *ref_51
+  - *ref_52
+  - *ref_53

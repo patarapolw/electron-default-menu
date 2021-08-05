@@ -22,11 +22,12 @@ jobs:
         with:
           node-version: 14.x
 
+      # From: https://github.com/KittKode/headless-electron/blob/master/Dockerfile
       - name: Dependencies to run Electron in Github Actions
         if: matrix.platform == 'ubuntu-latest'
         run: |
           sudo apt-get update
-          sudo apt-get install -y lxqt
+          sudo apt-get install -y libgtk2.0-0 libgconf-2-4 libasound2 libxtst6 libxss1 libnss3 xvfb
 
       - name: Build YAML
         run: |

@@ -32,11 +32,11 @@ module.exports = function (
               ]
             : []),
         {
-            label: "File",
+            role: "filemenu",
             submenu: [isMac ? { role: "close" } : { role: "quit" }],
         },
         {
-            label: "Edit",
+            role: "editmenu",
             submenu: [
                 { role: "undo" },
                 { role: "redo" },
@@ -61,27 +61,26 @@ module.exports = function (
                     : [
                           { role: "delete" },
                           { type: "separator" },
-                          { role: "selectAll" },
+                          { role: "selectall" },
                       ]),
             ],
         },
         {
-            label: "View",
+            role: "viewmenu",
             submenu: [
                 { role: "reload" },
-                { role: "forceReload" },
-                { role: "toggleDevTools" },
+                { role: "forcereload" },
+                { role: "toggledevtools" },
                 { type: "separator" },
-                { role: "resetZoom" },
-                { role: "zoomIn" },
-                { role: "zoomOut" },
+                { role: "resetzoom" },
+                { role: "zoomin" },
+                { role: "zoomout" },
                 { type: "separator" },
                 { role: "togglefullscreen" },
             ],
         },
         {
-            label: "Window",
-            role: "window",
+            role: "windowmenu",
             submenu: [
                 { role: "minimize" },
                 { role: "zoom" },
@@ -96,7 +95,6 @@ module.exports = function (
             ],
         },
         {
-            label: "Help",
             role: "help",
             submenu: [
                 {

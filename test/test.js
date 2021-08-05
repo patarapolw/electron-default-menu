@@ -25,7 +25,7 @@ describe("Comparing template", () => {
      */
     const comparison = (templ, submenu, name = "ROOT") => {
         it(`${name}: compare label naming`, () => {
-            assert.equal(
+            assert.deepStrictEqual(
                 templ.map((t) => t.role || t.label || ""),
                 submenu.items.map((t) => t.role || t.label)
             );
@@ -45,7 +45,7 @@ describe("Comparing template", () => {
                     );
 
                 if (templ) {
-                    it(`${name}.${t.label}: must have submenu items`, () => {
+                    it(`${name}.${label}: must have submenu items`, () => {
                         assert(newsub);
                     });
 

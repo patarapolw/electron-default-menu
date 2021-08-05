@@ -33,7 +33,7 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: menu.yml
-          asset_name: menu-${{ RUNNER_OS }}.yml
+          asset_name: menu-${{ runner.os }}.yml
           tag: release-${{ github.ref }}
           overwrite: true
           body: menu-template

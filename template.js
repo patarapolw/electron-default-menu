@@ -17,7 +17,7 @@ module.exports = function (opts = {}) {
             try {
                 return require("electron").app.name;
             } catch (e) {}
-            return repo.replace(/^.+\//, "");
+            return "appmenu";
         })();
 
     const isMac = platform === "darwin";
@@ -56,15 +56,15 @@ module.exports = function (opts = {}) {
                 { role: "paste" },
                 ...(isMac
                     ? [
-                          { role: "pasteAndMatchStyle" },
+                          { role: "pasteandmatchstyle" },
                           { role: "delete" },
-                          { role: "selectAll" },
+                          { role: "selectall" },
                           { type: "separator" },
                           {
                               label: "Speech",
                               submenu: [
-                                  { role: "startSpeaking" },
-                                  { role: "stopSpeaking" },
+                                  { role: "startspeaking" },
+                                  { role: "stopspeaking" },
                               ],
                           },
                       ]
@@ -98,8 +98,8 @@ module.exports = function (opts = {}) {
                     ? [
                           { type: "separator" },
                           { role: "front" },
-                          { type: "separator" },
-                          { role: "window" },
+                          //   { type: "separator" },
+                          //   { role: "window" },
                       ]
                     : [{ role: "close" }]),
             ],
